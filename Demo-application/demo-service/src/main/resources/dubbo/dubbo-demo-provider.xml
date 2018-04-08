@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+         http://www.springframework.org/schema/beans/spring-beans.xsd
+		 http://code.alibabatech.com/schema/dubbo
+	     http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+
+    <import resource="classpath:spring/application-service.xml"/>
+
+    <dubbo:application name="provider-demo" owner="meijie.song" organization="starcor"/>
+    <dubbo:registry address="zookeeper://localhost:2181"/>
+    <dubbo:provider retries="2" accepts="500" threads="500" threadpool="cached" timeout="3000000"/>
+    <dubbo:protocol name="dubbo" port="20880" />
+
+    <!--接口注册-->
+    <dubbo:service interface="com.starcor.demo.facade.UserFacade"  ref="userFacade" protocol="dubbo"/>
+
+</beans>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<settings>
+		<setting name="logImpl" value="SLF4J"/>
+		<!-- 开启mybatis缓存设置,一般都是true -->
+		<setting name="cacheEnabled" value="false"/>
+		<!--延迟加载的全局开关-->
+		<setting name="lazyLoadingEnabled" value="false"/>
+		<!--设置超时时间-->
+		<setting name="defaultStatementTimeout" value="3000"/>
+		<!--本地缓存机制-->
+		<setting name="localCacheScope" value="STATEMENT"/>
+		<setting name="defaultExecutorType" value="SIMPLE"/>
+		<setting name="mapUnderscoreToCamelCase" value="true"/>
+		<!--允许JDBC支持自动生成主键,需要驱动的兼容-->
+		<setting name="useGeneratedKeys" value="true"/>
+	</settings>
+	<plugins>
+		<plugin interceptor="com.github.pagehelper.PageInterceptor">
+			<!--当该参数设置为 true 时，会将 RowBounds 中的 offset 参数当成 pageNum 使用-->
+			<property name="offsetAsPageNum" value="true"/>
+			<!--当该参数设置为 true 时，pageNum<=0 时会查询第一页， pageNum>pages（超过总数时），会查询最后一页-->
+			<property name="reasonable" value="false"/>
+			<!--当该参数设置为 true 时，如果 pageSize=0 或者 RowBounds.limit = 0 就会查询出全部的结果-->
+			<property name="pageSizeZero" value="false"/>
+			<!--当该参数设置为true时，使用 RowBounds 分页会进行 count 查询。-->
+			<property name="rowBoundsWithCount" value="true"/>
+			<!--设置为 true 时，允许在运行时根据多数据源自动识别对应方言的分页-->
+			<property name="autoRuntimeDialect" value="false"/>
+		</plugin>
+	</plugins>
+</configuration>

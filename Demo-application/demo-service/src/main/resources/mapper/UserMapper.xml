@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.starcor.demo.dao.UserMapper">
+    <insert id="insert">
+      INSERT INTO user(user_name, user_number, user_introduce, role_id)
+      VALUE(#{user.userName},#{user.userNumber},#{user.userIntroduce},#{user.role.roleId})
+    </insert>
+    <resultMap id="baseMap" type="com.starcor.demo.model.User">
+        <id property="id" column="id"/>
+        <result property="name" column="name"/>
+        <result property="number" column="number"/>
+        <result property="role" column="role"/>
+    </resultMap>
+    <select id="list" resultMap="baseMap">
+      SELECT * FROM user
+      <where>
+          user_name LIKE #{user.userName} or user_number LIKE #{user.userNumber}
+      </where>
+    </select>
+    <update id="update">
+        UPDATE user SET
+        user_name = #{user.userName},
+        user_number = #{user.userNumber},
+        user_introduce=#{user.userIntroduce},
+        <where>
+            user_id = #{user.userId}
+        </where>
+    </update>
+    <delete id="delete">
+        DELETE FROM user
+        <where>
+            user_id = #{userId}
+        </where>
+    </delete>
+</mapper>
