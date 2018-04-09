@@ -12,7 +12,7 @@ import java.io.IOException;
  * @author meijie.song
  * @date 2018/4/8
  **/
-public class DemoProvider {
+public class DemoService {
     public static void main(String[] args) throws IOException {
         ClassPathXmlApplicationContext context =
                 new ClassPathXmlApplicationContext("dubbo/dubbo-demo-provider.xml");

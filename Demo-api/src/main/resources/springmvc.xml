@@ -15,10 +15,7 @@
          http://www.springframework.org/schema/context/spring-context.xsd">
 
 	<!--扫描控制器-->
-	<context:component-scan base-package="com.starcor.demo.controller" use-default-filters="false">
-		<!--过滤器-->
-		<!--扫描restController-->
-		<context:include-filter type="annotation" expression="org.springframework.web.bind.annotation.RestController" />
+	<context:component-scan base-package="com.starcor.demo.controller">
 	</context:component-scan>
 	<!--扫描异常处理类-->
 	<context:component-scan base-package="com.starcor.demo.exception"/>

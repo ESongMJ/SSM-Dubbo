@@ -1,10 +1,11 @@
 package com.starcor.demo.facade;
 
 
+import com.github.pagehelper.Page;
+import com.starcor.common.result.Result;
+import com.starcor.demo.param.UserPageParam;
 import com.starcor.demo.param.UserParam;
 import com.starcor.demo.result.UserResult;
-
-import java.util.List;
 
 /**
  * <p>
@@ -17,29 +18,29 @@ import java.util.List;
 public interface UserFacade {
     /**
      *
-     * @param userParam
+     * @param userpageParam
      * @return
      */
-    List<UserResult> list(UserParam userParam);
+    Result<Page<UserResult>> list(UserPageParam userpageParam);
 
     /**
      *
      * @param userParam
      * @return
      */
-    Integer insert(UserParam userParam);
+    Result<Void> insert(UserParam userParam);
 
     /**
      *
      * @param userParam
      * @return
      */
-    Integer update(UserParam userParam);
+    Result<Void> update(UserParam userParam);
 
     /**
      *
      * @param userId
      * @return
      */
-    Integer delete(Long userId);
+    Result<Void> delete(Long userId);
 }

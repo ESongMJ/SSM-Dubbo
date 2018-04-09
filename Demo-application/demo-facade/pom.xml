@@ -21,7 +21,10 @@
     </properties>
 
     <dependencies>
-
+        <dependency>
+            <groupId>com.starcor.evs</groupId>
+            <artifactId>evs_util</artifactId>
+        </dependency>
     </dependencies>
 
 

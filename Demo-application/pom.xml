@@ -104,10 +104,22 @@
         <!--demo接口版本-->
         <demo-facde.version>1.0.0-SNAPSHOT</demo-facde.version>
         <aspectjweaver.version>1.7.2</aspectjweaver.version>
+        <admin-facde.version>1.4.0-SNAPSHOT</admin-facde.version>
+        <evs_util.version>1.4.0-SNAPSHOT</evs_util.version>
     </properties>
     <!--jar版本管理-->
     <dependencyManagement>
         <dependencies>
+            <dependency>
+                <groupId>com.starcor</groupId>
+                <artifactId>admin-facade</artifactId>
+                <version>${admin-facde.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.starcor.evs</groupId>
+                <artifactId>evs_util</artifactId>
+                <version>${evs_util.version}</version>
+            </dependency>
             <dependency>
                 <groupId>com.starcor.demo</groupId>
                 <artifactId>demo-facade</artifactId>

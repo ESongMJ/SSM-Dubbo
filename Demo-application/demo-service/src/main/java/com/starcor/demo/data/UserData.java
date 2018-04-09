@@ -1,8 +1,10 @@
 package com.starcor.demo.data;
 
+import com.github.pagehelper.Page;
 import com.starcor.demo.dto.UserDto;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * <p>
@@ -15,29 +17,29 @@ import java.util.List;
 public interface UserData {
     /**
      *
-     * @param userDto
+     * @param map
      * @return
      */
-    List<UserDto> list(UserDto userDto);
+    Page<UserDto> list(Map<String,Object> map);
 
     /**
      *
      * @param userDto
      * @return
      */
-    Integer insert(UserDto userDto);
+    void insert(UserDto userDto);
 
     /**
      *
      * @param userDto
      * @return
      */
-    Integer update(UserDto userDto);
+    void update(UserDto userDto);
 
     /**
      *
      * @param userId
      * @return
      */
-    Integer delete(Long userId);
+    void delete(Long userId);
 }

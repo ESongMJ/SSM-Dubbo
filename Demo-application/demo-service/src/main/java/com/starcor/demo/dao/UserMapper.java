@@ -1,9 +1,11 @@
 package com.starcor.demo.dao;
 
+import com.github.pagehelper.Page;
 import com.starcor.demo.model.User;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * <p>
@@ -21,15 +23,15 @@ public interface UserMapper {
      * @param user
      * @return
      */
-    Integer insert(@Param("user") User user);
+    void insert(User user);
 
     /**
      * 查询用户列表
      *
-     * @param user
+     * @param map
      * @return
      */
-    List<User> list(@Param("user") User user);
+    Page<User> list(Map<String,Object> map);
 
     /**
      * 更新用户
@@ -37,13 +39,13 @@ public interface UserMapper {
      * @param user
      * @return
      */
-    Integer update(@Param("user") User user);
+    void update(User user);
 
     /**
      * 删除用户
      *
-     * @param userId
+     * @param id
      * @return
      */
-    Integer delete(@Param("userId") Long userId);
+    void delete(Long id);
 }

@@ -21,6 +21,10 @@
     </properties>
     <dependencies>
         <dependency>
+            <groupId>com.starcor</groupId>
+            <artifactId>admin-facade</artifactId>
+        </dependency>
+        <dependency>
             <groupId>com.starcor.demo</groupId>
             <artifactId>demo-facade</artifactId>
         </dependency>

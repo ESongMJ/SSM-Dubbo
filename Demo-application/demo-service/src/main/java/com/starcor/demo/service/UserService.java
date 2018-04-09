@@ -1,5 +1,7 @@
 package com.starcor.demo.service;
 
+import com.github.pagehelper.Page;
+import com.starcor.demo.param.UserPageParam;
 import com.starcor.demo.param.UserParam;
 import com.starcor.demo.result.UserResult;
 
@@ -16,29 +18,29 @@ import java.util.List;
 public interface UserService {
     /**
      *
-     * @param userParam
+     * @param userPageParam
      * @return
      */
-    List<UserResult> list(UserParam userParam);
+    Page<UserResult> list(UserPageParam userPageParam);
 
     /**
      *
      * @param userParam
      * @return
      */
-    Integer insert(UserParam userParam);
+    void insert(UserParam userParam);
 
     /**
      *
      * @param userParam
      * @return
      */
-    Integer update(UserParam userParam);
+    void update(UserParam userParam);
 
     /**
      *
      * @param userId
      * @return
      */
-    Integer delete(Long userId);
+    void delete(Long userId);
 }
